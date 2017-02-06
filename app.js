@@ -11,16 +11,20 @@
       $scope.msg = "";
 
       $scope.sayMessage = function () {
-        if ($scope.food == "") {
+        var newMsg = constructMessage($scope.food);
+        $scope.msg = newMsg;
+      }
+
+      function constructMessage(string)
+        if (string == "") {
           alert("Please enter data first");
-          $scope.msg = "";
-          return;
+          return "";
         }
-        var arrayOfItems = $scope.food.split(",");
+        var arrayOfItems = string.split(",");
         if(arrayOfItems.length > 3) {
-          $scope.msg = "This is too much";
+          return "This is too much";
         } else {
-          $scope.msg = "Enjoy";
+          retrun = "Enjoy";
         }
 
       };
